@@ -3,7 +3,8 @@ import './App.css';
 import SearchBox from '../components/SearchBox.js'
 import CardGen from '../components/CardGen.js';
 //import { robots } from './robots';
-import Scroll from '../components/Scroll.js'
+import Scroll from '../components/Scroll.js';
+import ErrorBoundary from '../components/ErrorBoundary.js';
 
 class App extends React.Component{
 	
@@ -40,7 +41,9 @@ class App extends React.Component{
 					<h1>ROBOFRIENDS</h1>
 					<SearchBox searchChange={this.onSearchChange}/>
 					<Scroll>
-						<CardGen robots={filteredRobots}/>
+						<ErrorBoundary>
+							<CardGen robots={filteredRobots}/>
+						</ErrorBoundary>
 					</Scroll>
 				</div>
 			);
